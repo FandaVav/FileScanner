@@ -1,0 +1,65 @@
+﻿@model FileScannerUI.Models.ScanInputViewModel
+
+<h2>Analýza složky</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div style="color: white; background-color: #c0392b; padding: 10px; margin-bottom: 20px; border-radius: 5px;">
+        <strong>Chyba:</strong> @Model.ErrorMessage
+    </div>
+}
+
+<form asp-action="Index" method="post">
+    <div>
+        <label>Cesta k adresáři:</label>
+        <input asp-for="DirectoryPath" class="form-control" />
+    </div>
+    <div>
+        <label>
+            <input asp-for="IncludeHidden" /> Zahrnout skryté soubory
+        </label>
+    </div>
+    <div>
+        <label>
+            <input asp-for="IncludeSubdirectories" /> Zahrnout podsložky
+        </label>
+    </div>
+    <button type="submit">Spustit sken</button>
+</form>
+
+@if (Model.Result != null)
+{
+    <h3>Výsledek</h3>
+
+    <h4>Přidané soubory</h4>
+    <ul>
+        @foreach (var file in Model.Result.Added)
+        {
+            <li>@file.RelativePath (verze @file.Version)</li>
+        }
+    </ul>
+
+    <h4>Změněné soubory</h4>
+    <ul>
+        @foreach (var file in Model.Result.Changed)
+        {
+            <li>@file.RelativePath (verze @file.Version)</li>
+        }
+    </ul>
+
+    <h4>Odebrané soubory</h4>
+    <ul>
+        @foreach (var file in Model.Result.RemovedFiles)
+        {
+            <li>@file.RelativePath (verze @file.Version)</li>
+        }
+    </ul>
+
+    <h4>Odebrané složky</h4>
+    <ul>
+        @foreach (var folder in Model.Result.RemovedDirectories)
+        {
+            <li>@folder</li>
+        }
+    </ul>
+}
