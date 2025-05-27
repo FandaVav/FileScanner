@@ -34,6 +34,7 @@ případné chyby které vzniknou při volání se zobrazují uživately jak na 
 ### Limity mého řešení
 1. webová aplikace určitě nevyhraje soutěž krásy. V ideálním světě bych ji udělal určitě hezčí, na druhou stranu i přes ten minimalistický vzhled by měla být přehledná a dělat vše co se od ní požaduje
 2. Duplicitnost - vzhledem k mému rozhodnutí do scanování zahrnout i podsložky dochází k situaci, že když člověk nascanuje nějakou složku a pak pustí scan na její podsložce, program ji bere jako samostatnou entitu a vytvoří si pro ni vlastní verzovací soubor. Tomu by se dalo zabránit kdybych rekurzivně řešil dědičnost u jednotlivých objektů a kaskádově je mezi sebou provolával, to by ale mohlo dost spomalit výkon. Vzhledem k tomu, že jsem chtěl aby výpočty netrvali dlouho rozhodl jsem se jít současným způsobem řešení
+3. bezpečnost - api nemá žádnou autentizaci, pro ostře nasazené api s důležitými informacemi by bylo vhodné zakomponovat autentizační tokeny aby nebylo jednoduché se k informacícm dostat z venku. Tady jsem ale předpokládal že jde o ukázku a není potřeba to dělat robusní tímto směrem, přeci jen vylepšit jde něco vždy
 
 ### Ukládání informací
 informace se ukládají do json souborů. Existuje jeden hlavní soubor nazvaný MasterLibrary, který drží informace o všech doposud nascanovaných složkách. 
