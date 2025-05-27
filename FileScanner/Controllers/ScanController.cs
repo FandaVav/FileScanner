@@ -29,7 +29,7 @@ namespace PracticeTask.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Chyba při zpracování požadavku ScanAsync");
+                _logger.LogError(ex, "Chyba při zpracování požadavku ScanAsync");
 
                 return StatusCode(500, new ScanErrorResult
                 {
@@ -56,7 +56,7 @@ namespace PracticeTask.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Chyba při načítání MasterLibrary");
+                _logger.LogError(ex, "Chyba při načítání MasterLibrary");
 
                 return StatusCode(500, new ScanErrorResult
                 {
@@ -82,7 +82,7 @@ namespace PracticeTask.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Chyba při načítání snapshotu {FileName}", fileName);
+                _logger.LogError(ex, "Chyba při načítání snapshotu {FileName}", fileName);
 
                 return StatusCode(500, new ScanErrorResult
                 {
