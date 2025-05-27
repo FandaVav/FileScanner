@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vwoQ5WcV37lcBW0Fvg1ETpQ80S5QB5y480VbehZOmWE=",
+  "Source": "FileScanner",
+  "BasePath": "_content/FileScanner",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
